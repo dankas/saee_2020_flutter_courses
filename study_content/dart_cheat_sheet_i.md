@@ -1,5 +1,7 @@
 # Dart Cheat Sheet - Parte 1
 
+
+
 ## Variáveis
 ```dart
 int n1 = 5; // explicitamente tipado
@@ -210,31 +212,26 @@ print(nomes);
 // [Kim, TIM, Jimmy]
 ```
 ```dart
-List bubbleSort(List itens,
- bool Function (int, int) funcaoDeComparacao,
- ) {
-    for (var j=0; j<itens.length-1; j++) {
-        var trocado = false;
-        for (var i=0; i<itens.length-1-j; i++) {
-            if (!funcaoDeComparacao(itens[i], itens[i+1])) {
-                var t = itens[i+1];
-                itens[i+1] = itens[i];
+List ordena(List itens, bool Function(int, int) comparador) {
+    for (var i = 0; i < itens.length; i++) {
+        for (var j = i + 1; j < itens.length; j++) {
+            if (!comparador(itens[i], itens[j])) {
+                var t = itens[j];
+                itens[j] = itens[i];
                 itens[i] = t;
-                trocado = true;
             }
         }
-        if (!trocado) 
-            break;
     }
     return itens;
 }
-var numeros = [5, 2, 8, 7, 9, 4, 3, 1];
+
+var numeros = [5, 2, 6, 8, 7, 9, 4, 3, 1];
 
 // ordena de forma crescente
-var numerosOrdenados = bubbleSort(numeros, (n1, n2) => n1 < n2);
-print(numerosOrdenados); // [1, 2, 3, 4, 5, 7, 8, 9]
+var numerosOrdenados = ordena(numeros, (n1, n2) => n1 < n2);
+print(numerosOrdenados); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 // ordena de forma decrescente
-numerosOrdenados = bubbleSort(numeros, (n1, n2) => n1 > n2);
-print(numerosOrdenados); // [9, 8, 7, 5, 4, 3, 2, 1]
+numerosOrdenados = ordena(numeros, (n1, n2) => n1 > n2);
+print(numerosOrdenados); // [9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```

@@ -4,7 +4,7 @@
 * **Dart Cheat Sheet - Parte 1**
 * [Dart Cheat Sheet - Parte 2](dart_cheat_sheet_ii.md)
 --- ---
-## Variáveis
+## 3.1. Variáveis
 ```dart
 int n1 = 5; // explicitamente tipado
 
@@ -20,7 +20,7 @@ double n4; // n4 é null
 String s1 = 'Hello, world!';
 var s2 = "Hello, world!";
 ```
-## Constantes
+## 3.2. Constantes
 ```dart
 const pi = 3.14;
 // const é usado
@@ -30,7 +30,7 @@ final area = pi * 5*5;
 // final só pode ter o valor
 //  atribído uma vez
 ```
-## Expressões Condicionais
+## 3.3. Expressões Condicionais
 ```dart
 //operador ternário 
 var nota = 6;
@@ -52,7 +52,7 @@ var idade = entrada ?? 0;
 //idade recebe 0; caso contrario, recebe entrada
 print(idade); // 0
 ```
-## Funções
+## 3.4. Funções
 ```dart
 void fazAlgumaCoisa() {
     print("fazAlgumaCoisa()");
@@ -67,7 +67,7 @@ int somaNumeros(num1, num2, num3) {
 
 print(somaNumeros(1,2,3)); // 6
  ```
-## *Arrow Syntax*
+## 3.5. *Arrow Syntax*
 ```dart
 void fazAlgumaOutraCoisa() {
     fazAlgumaCoisa();
@@ -77,7 +77,7 @@ void fazAlgumaOutraCoisa() {
 //  com a arrow syntax
 void fazAlgumaOutraCoisa() => fazAlgumaCoisa();
  ```
-## Parâmetros Posicionais Opcionais
+## 3.6. Parâmetros Posicionais Opcionais
 ```dart
 int somaNumeros2(num1, [num2=0, num3=0]) {
     return num1+num2+num3;
@@ -87,7 +87,7 @@ print(somaNumeros2(1)); //1
 print(somaNumeros2(1,2)); //3
 print(somaNumeros2(1,2,3)); //6
  ```
-## Parâmetros Nomeados
+## 3.7. Parâmetros Nomeados
 ```dart
 int somaNumeros3({num1, num2, num3}) {
     return num1+num2+num3;
@@ -95,7 +95,7 @@ int somaNumeros3({num1, num2, num3}) {
 
 print(somaNumeros3(num1:1,num2:2,num3:3));
  ```
-## Parâmetros Nomeados Opcionais
+## 3.8. Parâmetros Nomeados Opcionais
 ```dart
 int somaNumeros3(num1, {num2=0, num3=0}) {
     return num1+num2+num3;
@@ -105,7 +105,7 @@ print(somaNumeros3(1));
 print(somaNumeros3(1,num3:2));
 print(somaNumeros3(1,num2:5,num3:2));
 ```
-## *Parsing* 
+## 3.9. *Parsing* 
 ```dart
 var s1 = "123"; //parse é utilizado para 
 var s2 = "12.56"; //converter variáveis 
@@ -120,7 +120,7 @@ print(num.parse(s3)); // FormatException: 12.a56
 //caso a conversão seja inválida
 print(num.tryParse(s3)); // null
 ```
-## Concatenação de *Strings*
+## 3.10. Concatenação de *Strings*
 ```dart
 var s1 = "Hello";
 var s2 = "world";
@@ -130,7 +130,7 @@ print(s); // Hello, world!
 print("Soma de 5 e 6 é ${5+6}");
 // Soma de 5 e 6 é 11
 ```
-## *List* (Vetor)
+## 3.11. *List* (Vetor)
 ```dart
 // lista dinâmica
 var lista = [1, 2, 3, 4, 5];
@@ -157,7 +157,7 @@ lista3.add(5);
 // Uncaught exception:
 // Unsupported operation: add
 ```
-## *Map*
+## 3.12. *Map*
 
 ```dart
 var detales = {
@@ -179,7 +179,7 @@ for (var marca in dispositivos.keys) {
     }
 }
 ```
-## Funções *Lambda*
+## 3.13. Funções *Lambda*
 ```dart
 var numeros = List<int>.generate(10, (int i) => i);
 
@@ -212,7 +212,7 @@ nomes.sort((a, b) => a.length > b.length ? 1 : -1);
 print(nomes);
 // [Kim, TIM, Jimmy]
 ```
-## Função de Ordem Superior
+## 3.14 Função de Ordem Superior
 ```dart
 List ordena(List itens, bool Function(int, int) comparador) {
     for (var i = 0; i < itens.length; i++) {

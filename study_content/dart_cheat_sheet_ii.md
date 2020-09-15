@@ -4,7 +4,7 @@
 * [Dart Cheat Sheet - Parte 1](dart_cheat_sheet_i.md)
 * **Dart Cheat Sheet - Parte 2**
 --- ---
-## Iteracões
+## 3.15. Iteracões
 ```dart
 for (int index = 0; index < 5; index++) {
     print(i);
@@ -29,7 +29,7 @@ do {
 } while (index < 5);
 // 0 1 2 3 4
 ```
-## Classe
+## 3.16. Classes
 ```dart
 class Localizacao {
 }
@@ -38,7 +38,7 @@ class Localizacao {
 var loc1 =  Localizacao();
 Localizacao loc2 = Localizacao();
 ```
-## Propriedades
+## 3.17. Propriedades
 ```dart 
 class Localizacao {
     // propridedades de leitura/escrita
@@ -53,7 +53,7 @@ loc1.latitude = 57.123;
 loc1.longitude = 37.22;
 loc1.arrived = true; // erro
 ```
-## Métodos
+## 3.18. Métodos
 ```dart
 class Localizacao {
     double latitude;
@@ -68,7 +68,7 @@ class Localizacao {
 
 loc1.mostraPosicao(); // 57.123 37.22
 ```
-## Construtores
+## 3.19. Construtores
 ```dart
 class Localizacao {
     double latitude;
@@ -94,7 +94,7 @@ class Localizacao {
 var loc1 = Localizacao();
 var loc2 = Localizacao.comPosicao(57.123,37.22);
  ```
-## *Getters* e *Setters*
+## 3.20. *Getters* e *Setters*
 ```dart
 class Localizacao {
     double _latitude;
@@ -139,7 +139,7 @@ class Localizacao {
  loc2.latitude = 999;
  // Uncaught exception:Posição Inválida
  ```
-## Herança
+## 3.21. Herança
 ```dart
 import "dart:math";
 
@@ -177,7 +177,7 @@ print(forma1.perimetro()); //10
 var forma2 = Forma.comDimensoes(1, 3); //erro
 ```
 
-## Sobrescrita
+## 3.22. Sobrescrita
 ```dart
 class Elipse extends Forma {
     Elipse.comDimensoes(double comprimento, double largura)
@@ -194,7 +194,7 @@ var forma3 = Elipse.comDimensoes(2, 3);
 print(forma3.area()); // 18.84955592153876
 print(forma3.perimetro()); // 16.01904224441409
  ```
-## Membros/Métodos Estaticos 
+## 3.23. Membros/Métodos Estaticos 
 ```dart
 class Carro {
     static double milhasParaKm(double milhas)
@@ -211,7 +211,7 @@ class Carro {
     void mostraVelocidade();
 }
 ```
-## Interfaces
+## 3.24. Interfaces
 ```dart
 class MeuCarro implements Carro {
     void acelerar() {

@@ -1,250 +1,224 @@
-## Iterations
+## Iteracões
 ```dart
-for (int i=0;i<5; i++) {
- print(i);
-} // prints 0 to 4
+for (int index = 0; index < 5; index++) {
+    print(i);
+} //  0 1 2 3 4
 
-var list = [1,2,3,4,5];
-for (final i in list) {
- print(i);
-} // prints 1 to 5
-int i=0;
-while (i < 5) {
- print(i);
- i++;
-} // prints 0 to 4
+var lista = [1, 2, 3, 4, 5];
+for (final elemento in lista) {
+    print(elemento);
+} // 0 1 2 3 4 5
+```
+```dart
+int index = 0;
+while (index < 5) {
+    print(index);
+    index++;
+} // 0 1 2 3 4
 
-i = 0;
+index = 0;
 do {
- print(i);
- i++;
-} while (i<5);
-// prints 0 to 4
+    print(index);
+    index++;
+} while (index < 5);
+// 0 1 2 3 4
 ```
-## Class
+## Classe
 ```dart
-class MyLocation {
+class Localizacao {
 }
-// type inference
-var loc1 = new MyLocation();
-// declare and initialize
-MyLocation loc2 = new MyLocation();
+
+//formas de inicializar
+var loc1 =  Localizacao();
+Localizacao loc2 = Localizacao();
 ```
-## Properties
+## Propriedades
 ```dart 
-class MyLocation {
- // read/write properties
- var lat;
- var lng;
+class Localizacao {
+    // propridedades de leitura/escrita
+    double latitude;
+    double longitude;
 
- // read-only property
- final arrived = false;
+    // propridedade de apenas leitura
+    final bool chegou = false;
 }
-loc1.lat = 57.123;
-loc1.lng = 37.22;
-// loc1.arrived = true; // error
-var arr = loc1.arrived;
+
+loc1.latitude = 57.123;
+loc1.longitude = 37.22;
+loc1.arrived = true; // erro
 ```
-## Methods
+## Métodos
 ```dart
-class MyLocation {
- // read/write properties
- var lat;
- var lng;
- // read-only property
- final arrived = false;
- void someMethod() {
- }
+class Localizacao {
+    double latitude;
+    double longitude;
+    final bool chegou = false;
+
+    // metodos
+    void mostraPosicao() {
+        print("$latitude $longitude");
+    }
 }
-loc1.someMethod();
+
+loc1.mostraPosicao(); // 57.123 37.22
 ```
-## Constructors
+## Construtores
 ```dart
-class MyLocation {
-// read/write properties
- var lat;
- var lng;
- // read-only property
- final arrived = false;
- // unnamed constructor
- MyLocation() {
- this.lat = 0;
- this.lng = 0;
- }
+class Localizacao {
+    double latitude;
+    double longitude;
+    final bool chegou = false;
 
- // named constructor
- MyLocation.withPosition(
- var lat, var lng) {
- this.lat = lat;
- this.lng = lng;
- }
- void someMethod() {
- }
+    // construtor não nomeado
+    Localizacao() {
+        this.latitude = 0;
+        this.longitude = 0;
+    }
+    // construtor nomeado
+    Localizacao.comPosicao(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    void mostraPosicao() {
+        print("$latitude $longitude");
+    }
 }
-var loc1 = new MyLocation();
- var loc2 = new
- MyLocation.withPosition(
- 57.123,37.22);
+
+var loc1 = Localizacao();
+var loc2 = Localizacao.comPosicao(57.123,37.22);
  ```
-## Getters and Setters
+## *Getters* e *Setters*
 ```dart
-class MyLocation {
- double _lat;
- double _lng;
- double get lat => _lat;
- set lat (double value) {
- if (value > 90 || value < -90) {
- throw("Invalid latitude");
- }
- _lat = value;
- }
+class Localizacao {
+    double _latitude;
+    double _longitude;
+    final bool chegou = false;
 
- double get lng => _lng;
- set lng (double value) {
- if (value > 180 ||
- value < -180) {
- throw("Invalid longitude");
- }
- _lng = value;
- }
+    double get latitude => _latitude;
+    double get longitude => _longitude;
 
- // read-only property
- final arrived = false;
+    set latitude (double valor) {
+        if (valor > 90 || valor < -90) 
+            throw("Latitude inválida");
 
- // unnamed constructor
- MyLocation() {
- this.lat = 0;
- this.lng = 0;
- }
+        _latitude = valor;
+    }
+    set longitude (double valor) {
+        if (valor > 180 || valor < -180) 
+             throw("Longitude inválida");
 
- // named constructor
- MyLocation.withPosition(
- var lat, var lng) {
- this.lat = lat;
- this.lng = lng;
- }
- void someMethod() {
- }
+        _longitude = valor;
+    }
+
+    Localizacao() {
+        this.latitude = 0;
+        this.longitude = 0;
+    }
+
+    Localizacao.comPosicao(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    void mostraPosicao() {
+        print("$latitude $longitude");
+    }
 }
- var loc1 = new MyLocation();
- var loc2 = new
- MyLocation.withPosition(
- 57.123,37.22);
- loc1.lat = 57.123;
- loc1.lng = 37.22;
+ var loc1 = Localizacao();
+ var loc2 = Localizacao.comPosicao(57.123, 37.22);
+ loc1.latitude = 57.123;
+ loc1.longitude = 37.22;
 
- loc2.lat = 999;
- // Uncaught exception:Invalid
- // latitude
+ loc2.latitude = 999;
+ // Uncaught exception:Posição Inválida
  ```
-## Inheritance
+## Herança
 ```dart
-// abstract class cannot be
-// instantiated directly
-abstract class Shape {
- double length;
- double width;
- // without this zero-argument
- // constructor, class cannot be
- // extended
- Shape() {
- this.length = 0;
- this.width = 0;
- }
+import "dart:math";
 
- // constructor with another name
- Shape.withDimension(double length,
- double width){
- this.length = length;
- this.width = width;
- }
- double perimeter() {
- return 2 * (this.length +
- this.width);
- }
- double area() {
- return this.length * this.width;
- }
+abstract class Forma {
+    double altura;
+    double largura;
+
+    // sem este construtor de
+    // zero argumentos, uma classe
+    // não pode ser extendida
+    Forma() {
+        this.altura = 0;
+        this.largura = 0;
+    }
+
+    // construtor com outro nome
+    Forma.comDimensoes(double altura, double largura) {
+        this.altura = altura;
+        this.largura = largura;
+    }
+
+    double perimetro() => (this.altura + this.largura) * 2;
+    double area() => this.altura * this.largura;
 }
-class Rectangle extends Shape {
- Rectangle() {}
- Rectangle.withDimension(
- double length, double width):
- super.withDimension(
- length, width);
+
+class Retangulo extends Forma {
+    Retangulo.comDimensoes(double comprimento, double largura)
+        : super.comDimensoes(comprimento, largura);
 }
+
+var forma1 = Retangulo.comDimensoes(2, 3); 
+print(forma1.area()); // 6
+print(forma1.perimetro()); //10
+
+var forma2 = Forma.comDimensoes(1, 3); //erro
 ```
-## Final Class
+
+## Sobrescrita
 ```dart
-// Square cannot be extended (it
-// does not have a zero-argument
-// constructor)
-class Square extends Rectangle {
- Square(double length):
- super.withDimension(
- length, length);
+class Elipse extends Forma {
+    Elipse.comDimensoes(double comprimento, double largura)
+        : super.comDimensoes(comprimento, largura);
+
+    @override
+    double perimetro() => 2 * pi * sqrt((largura*largura + altura*altura)/2);
+
+    @override
+    double area() => this.altura * this.largura * pi;
 }
 
- Square s = new Square(5);
- print(s.area()); // 25
- print(s.perimeter()); // 20
+var forma3 = Elipse.comDimensoes(2, 3);
+print(forma3.area()); // 18.84955592153876
+print(forma3.perimetro()); // 16.01904224441409
  ```
-## Overriding
+## Membros/Métodos Estaticos 
 ```dart
-class Circle extends Shape {
- Circle(double radius):
- super.withDimension(
- radius, radius);
- double area() {
- return 3.14 * this.length *
- this.length;
- }
- double perimeter() {
- return (2 * 3.14 * this.length);
- }
- // overloading of methods not
- // supported in Dart
-}
- Circle c = new Circle(6);
- print(c.area());
- // 113.03999999999999
-
- print(c.perimeter()); // 37.68
- ```
-## Static Members/Methods
-```dart
-class Car {
- static var MilesToKM = 1.60934;
- static double kilometersToMiles(
- double km) {
- return km / 1.60934;
- }
- void accelerate() {}
- void decelerate() {}
- void stop() {}
- void printSpeed() {}
+class Carro {
+    static double milhasParaKm(double milhas)
+        => milhas / 1.60934;
+    
+    static double kmParaMilhas(double km)
+        => km * 1.60934;
+    
+    void acelerar(){
+        // implementação padrão
+    }
+    void frear();
+    void parar();
+    void mostraVelocidade();
 }
 ```
 ## Interfaces
 ```dart
-class CarInterface {
- void accelerate() {
- // default implementation
- ...
- }
- void decelerate() {}
- void accelerateBy(int amount) {}
-}
-class MyCar implements
- CarInterface {
- void accelerate() {
- }
- void decelerate() {
- }
- void accelerateBy(int amount) {
- }
+class MeuCarro implements Carro {
+    void acelerar() {
+        // minha implementação
+    }
+    void frear() {
+        // minha implementação
+    }
+    void parar() {
+        // minha implementação
+    }
 }
 ```
-
+--- ---
 ### Referência
 Rev	1.1.1 ©	Wei-Meng	Lee	,	Developer	Learning Solutions, http://calendar.learn2develop.net All	rights	reserved.

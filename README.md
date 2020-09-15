@@ -22,8 +22,9 @@ O passo a passo para a instalação do **Flutter** já está na documentação o
 * [Como instalar FLUTTER no UBUNTU (Linux) - (PT-BR) - Passo a Passo para Iniciantes](https://www.youtube.com/watch?v=47WPjNd7pdY)
 * [Instalando o Flutter no MacOS Catalina (Installing Flutter on MacOS Catalina)](https://www.youtube.com/watch?v=qe2G3gXRMMw)
 
-## 2. Introdução ao Dart
-`TODO`
+## 2. Dart Cheat Sheet (Português BR)
+
+[aaa](study_content/dart_cheat_sheet.md)
 
 ## 3. Introdução ao Flutter
 `TODO`

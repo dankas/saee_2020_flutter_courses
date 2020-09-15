@@ -1,3 +1,9 @@
+# Dart Cheat Sheet - Parte 2
+### Guia
+* [Introdução e Instalação](./../README.md)
+* [Dart Cheat Sheet - Parte 1](dart_cheat_sheet_i.md)
+* **Dart Cheat Sheet - Parte 2**
+--- ---
 ## Iteracões
 ```dart
 for (int index = 0; index < 5; index++) {

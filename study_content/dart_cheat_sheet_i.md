@@ -1,7 +1,9 @@
 # Dart Cheat Sheet - Parte 1
-
-
-
+### Guia
+* [Introdução e Instalação](./../README.md)
+* **Dart Cheat Sheet - Parte 1**
+* [Dart Cheat Sheet - Parte 2](dart_cheat_sheet_ii.md)
+--- ---
 ## Variáveis
 ```dart
 int n1 = 5; // explicitamente tipado
@@ -196,7 +198,6 @@ var precos = numeros.map((n) => "\$$n")
 print(precos);
 //[$0, $1, $2, $3, $4, $5, $6, $7, $8, $9]
 ```
-## Função de Ordem Superior
 ```dart
 var nomes = ["Jimmy","TIM","Kim"];
 // ordenar alfabeticamente (sem case sensitive)
@@ -211,6 +212,7 @@ nomes.sort((a, b) => a.length > b.length ? 1 : -1);
 print(nomes);
 // [Kim, TIM, Jimmy]
 ```
+## Função de Ordem Superior
 ```dart
 List ordena(List itens, bool Function(int, int) comparador) {
     for (var i = 0; i < itens.length; i++) {
@@ -235,6 +237,6 @@ print(numerosOrdenados); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 numerosOrdenados = ordena(numeros, (n1, n2) => n1 > n2);
 print(numerosOrdenados); // [9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
-
+--- ---
 ### Referência
 Rev	1.1.1 ©	Wei-Meng	Lee	,	Developer	Learning Solutions, http://calendar.learn2develop.net All	rights	reserved.

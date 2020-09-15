@@ -235,3 +235,6 @@ print(numerosOrdenados); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 numerosOrdenados = ordena(numeros, (n1, n2) => n1 > n2);
 print(numerosOrdenados); // [9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
+
+### Referência
+Rev	1.1.1 ©	Wei-Meng	Lee	,	Developer	Learning Solutions, http://calendar.learn2develop.net All	rights	reserved.

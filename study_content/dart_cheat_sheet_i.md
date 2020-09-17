@@ -6,19 +6,19 @@
 --- ---
 ## 3.1. Variáveis
 ```dart
-int n1 = 5; // explicitamente tipado
+int n1 = 5; // explicitamente tipado para int
 
-var n2 = 4; // tipo inferido
+var n2 = 4; // tipo inferido para int
 n2 = "abc"; // erro
 
-dynamic n3 = 4; // dynamic significa que
- // n3 pode armazenar qualquer tipo
-n3 = "abc"; // ok
+var n3 = "Hello world"; // tipo inferido para String
+n3 = 2; // erro
 
-double n4; // n4 é null
+dynamic n4 = 4; // dynamic significa que
+ // n4 pode armazenar qualquer tipo
+n4 = "abc"; // ok
 
-String s1 = 'Hello, world!';
-var s2 = "Hello, world!";
+double n5; // n4 é null
 ```
 ## 3.2. Constantes
 ```dart
@@ -191,7 +191,7 @@ var impares = numeros.where((n) => n % 2 == 1)
 print(impares); // [1, 3, 5, 7, 9]
 
 var soma = numeros.reduce((s,n) => s + n);
-print(suma); // 45
+print(soma); // 45
 
 var precos = numeros.map((n) => "\$$n")
     .toList();

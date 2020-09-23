@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:initial_level/models/candy.dart';
-import 'package:initial_level/views/widgets/candy_card.dart';
+import 'package:initial_level/models/drink.dart';
+import 'package:initial_level/views/widgets/drink_card.dart';
 
-class CandiesGridView extends StatelessWidget {
-  final List<Candy> candies;
+class DrinkGridView extends StatelessWidget {
+  final List<Drink> drinks;
   final void Function(int) onChangeIndexed;
 
-  const CandiesGridView({
-    this.candies,
+  const DrinkGridView({
+    this.drinks,
     this.onChangeIndexed,
   });
 
@@ -18,11 +18,11 @@ class CandiesGridView extends StatelessWidget {
         crossAxisCount: 2,
         childAspectRatio: 0.606,
       ),
-      itemBuilder: (context, index) => CandyCard(
-        candies[index],
+      itemBuilder: (context, index) => DrinkCard(
+        drinks[index],
         () => onChangeIndexed(index),
       ),
-      itemCount: candies.length,
+      itemCount: drinks.length,
     );
   }
 }

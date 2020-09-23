@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:initial_level/controllers/candy_controller.dart';
-import 'package:initial_level/views/widgets/candies_grid_view.dart';
+import 'package:initial_level/controllers/menu_controller.dart';
+import 'package:initial_level/views/widgets/drink_grid_view.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,11 +8,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final candyController = CandyController();
+  final menuController = MenuController();
 
   @override
   void initState() {
-    candyController.init();
+    menuController.init();
     super.initState();
   }
 
@@ -49,11 +49,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Flexible(
-            child: CandiesGridView(
-              candies: candyController.list,
+            child: DrinkGridView(
+              drinks: menuController.list,
               onChangeIndexed: (index) {
                 setState(
-                  () => candyController.toggleCandyFavoriteStatus(index),
+                  () => menuController.toggleCandyFavoriteStatus(index),
                 );
               },
             ),

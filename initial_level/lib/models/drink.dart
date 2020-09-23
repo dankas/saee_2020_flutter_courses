@@ -1,14 +1,14 @@
-class Candy {
+class Drink {
   int id;
-  String imageUrl;
+  String imagePath;
   double price;
   String name;
   String description;
   bool isFavorite;
 
-  Candy({
+  Drink({
     this.id,
-    this.imageUrl,
+    this.imagePath,
     this.isFavorite,
     this.name,
     this.description,

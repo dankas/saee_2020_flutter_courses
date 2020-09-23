@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:initial_level/models/candy.dart';
+import 'package:initial_level/models/drink.dart';
 
-class CandyDetailsPage extends StatelessWidget {
-  final Candy candy;
-  const CandyDetailsPage(this.candy);
+class DrinkDetailsPage extends StatelessWidget {
+  final Drink drink;
+  const DrinkDetailsPage(this.drink);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(candy.name),
+        title: Text(drink.name),
       ),
       body: LayoutBuilder(
         builder: (builder, constraints) => Column(
           children: [
             Hero(
-              tag: candy.id,
-              child: Image.network(
-                candy.imageUrl,
+              tag: drink.id,
+              child: Image.asset(
+                drink.imagePath,
                 width: constraints.maxWidth,
                 height: constraints.maxWidth,
-                fit: BoxFit.fitHeight,
+                fit: BoxFit.cover,
                 alignment: Alignment.center,
               ),
             ),
@@ -40,7 +40,7 @@ class CandyDetailsPage extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        candy.name,
+                        drink.name,
                         style: TextStyle(
                           color: Theme.of(context).accentColor,
                           fontWeight: FontWeight.bold,
@@ -49,7 +49,7 @@ class CandyDetailsPage extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                        "R\$ ${candy.price.toStringAsFixed(2)}",
+                        "R\$ ${drink.price.toStringAsFixed(2)}",
                         style: TextStyle(
                           color: Theme.of(context).accentColor,
                           fontWeight: FontWeight.bold,
@@ -66,7 +66,7 @@ class CandyDetailsPage extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
-                          candy.description,
+                          drink.description,
                           textAlign: TextAlign.start,
                           style: TextStyle(
                             fontSize: 15,

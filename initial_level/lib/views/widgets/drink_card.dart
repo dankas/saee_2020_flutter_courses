@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:initial_level/models/candy.dart';
+import 'package:initial_level/models/drink.dart';
 import 'package:initial_level/views/pages/candy_details_page.dart';
 
-class CandyCard extends StatelessWidget {
-  final Candy candy;
+class DrinkCard extends StatelessWidget {
+  final Drink drink;
   final Function onFavorite;
 
-  const CandyCard(this.candy, this.onFavorite);
+  const DrinkCard(this.drink, this.onFavorite);
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,14 @@ class CandyCard extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => CandyDetailsPage(candy),
+                    builder: (context) => DrinkDetailsPage(drink),
                   ),
                 );
               },
               child: Hero(
-                tag: candy.id,
-                child: Image.network(
-                  candy.imageUrl,
+                tag: drink.id,
+                child: Image.asset(
+                  drink.imagePath,
                   fit: BoxFit.cover,
                   width: constraints.maxWidth,
                   height: constraints.maxWidth,
@@ -37,7 +37,7 @@ class CandyCard extends StatelessWidget {
               padding: const EdgeInsets.only(
                   top: 16, left: 16, right: 16, bottom: 8),
               child: Text(
-                candy.name,
+                drink.name,
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontWeight: FontWeight.bold,
@@ -48,7 +48,7 @@ class CandyCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                candy.description,
+                drink.description,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -59,7 +59,7 @@ class CandyCard extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "R\$ ${candy.price.toStringAsFixed(2)}",
+                    "R\$ ${drink.price.toStringAsFixed(2)}",
                     style: TextStyle(
                       color: Theme.of(context).accentColor,
                       fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class CandyCard extends StatelessWidget {
                   GestureDetector(
                     onTap: onFavorite,
                     child: Icon(
-                      candy.isFavorite ? Icons.favorite : Icons.favorite_border,
+                      drink.isFavorite ? Icons.favorite : Icons.favorite_border,
                       color: Theme.of(context).accentColor,
                     ),
                   )

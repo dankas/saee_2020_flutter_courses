@@ -20,7 +20,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Meu App"),
+        title: Text("Coffee Store"),
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -28,17 +29,17 @@ class _HomePageState extends State<HomePage> {
             height: 100,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF163344),
-                  Colors.blue,
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+              image: DecorationImage(
+                image: AssetImage("assets/coffee_background.jpg"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.black,
+                  BlendMode.softLight,
+                ),
               ),
             ),
             child: Text(
-              "Doces",
+              "Cardápio",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w600,

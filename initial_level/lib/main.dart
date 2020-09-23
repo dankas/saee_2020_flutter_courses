@@ -9,6 +9,7 @@ class MeuApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primaryColor: Color(0xFF163344),
+        accentColor: Color(0xFF9A775A),
       ),
       home: HomePage(),
     );

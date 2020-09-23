@@ -13,6 +13,7 @@ class CandyCard extends StatelessWidget {
     return Card(
       child: LayoutBuilder(
         builder: (context, constraints) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
               onTap: () {
@@ -30,23 +31,47 @@ class CandyCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(candy.name),
+              padding: const EdgeInsets.only(
+                  top: 16, left: 16, right: 16, bottom: 8),
+              child: Text(
+                candy.name,
+                style: TextStyle(
+                  color: Theme.of(context).accentColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
             ),
-            SizedBox(
-              height: 50,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                candy.description,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(candy.price),
-                IconButton(
-                  icon: Icon(candy.isFavorite
-                      ? Icons.favorite
-                      : Icons.favorite_border),
-                  onPressed: onFavorite,
-                )
-              ],
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 8, left: 16, right: 16, bottom: 16),
+              child: Row(
+                children: [
+                  Text(
+                    "R\$ ${candy.price.toStringAsFixed(2)}",
+                    style: TextStyle(
+                      color: Theme.of(context).accentColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: onFavorite,
+                    child: Icon(
+                      candy.isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: Theme.of(context).accentColor,
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),

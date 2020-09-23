@@ -1,13 +1,15 @@
 class Candy {
   String imageUrl;
-  String price;
+  double price;
   String name;
+  String description;
   bool isFavorite;
 
   Candy({
     this.imageUrl,
     this.isFavorite,
     this.name,
+    this.description,
     this.price,
   });
 }

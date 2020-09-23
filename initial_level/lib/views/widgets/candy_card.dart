@@ -23,11 +23,14 @@ class CandyCard extends StatelessWidget {
                   ),
                 );
               },
-              child: Image.network(
-                candy.imageUrl,
-                fit: BoxFit.cover,
-                width: constraints.maxWidth,
-                height: constraints.maxWidth,
+              child: Hero(
+                tag: candy.id,
+                child: Image.network(
+                  candy.imageUrl,
+                  fit: BoxFit.cover,
+                  width: constraints.maxWidth,
+                  height: constraints.maxWidth,
+                ),
               ),
             ),
             Padding(

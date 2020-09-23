@@ -1,4 +1,5 @@
 class Candy {
+  int id;
   String imageUrl;
   double price;
   String name;
@@ -6,6 +7,7 @@ class Candy {
   bool isFavorite;
 
   Candy({
+    this.id,
     this.imageUrl,
     this.isFavorite,
     this.name,
